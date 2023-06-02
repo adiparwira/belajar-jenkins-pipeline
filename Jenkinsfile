@@ -4,7 +4,7 @@ pipeline {
         stage('Build'){
             agent {
                 node {
-                    label "Agent && 2"
+                    label "linux && java11"
                 }
             }
             
