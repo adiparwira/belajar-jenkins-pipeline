@@ -11,7 +11,31 @@ pipeline {
         WEB = "https://chat.openai.com"
     }
     
+    parameters {
+        string(name: "NAME", defaultValue: "Guest", description: "what is your name")
+        text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me about you")
+        booleanParam(name: "DEPLOY", defaultValue: "false", description: "Need to deloy ?")
+        choice(name: "SOCIAL_MEDIA", choices: ['facebook',"instagram","twitter"], description: "which social media")
+        password(name: "PASSWORD", defaultValue: "secret", description: "Encrypt key")
+    }
+    
     stages {
+        stage('Parameter') {
+            agent {
+                node {
+                    label "Linux && Java11"
+                }
+            }
+            
+            steps {
+                echo "Hello ${params.NAME}"
+                echo "Your description is ${params.DESCRIPTION}"
+                echo "Need to deploy ${params.DEPLOY}"
+                echo "Your social media is ${params.SOCIAL_MEDIA}"
+                echo "Your secret ${params.PASSWORD}"
+            }
+        }
+        
         stage('Prepare'){
             environment {
                 APP = credentials('adi-cred')
