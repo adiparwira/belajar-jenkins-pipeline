@@ -2,7 +2,7 @@ pipeline {
     agent none
     options {
         disableConcurrentBuilds()
-        timeout(time: 10, unit: 'SECONDS')
+        timeout(time: 15, unit: 'SECONDS')
     }
     
     environment {
