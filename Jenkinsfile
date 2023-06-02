@@ -1,10 +1,16 @@
 pipeline {
     agent none
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 10, unit: 'SECONDS')
+    }
+    
     environment {
         AUTHOR = "Aryadi"
         EMAIL = "adiparwira@yahoo.com"
         WEB = "https://chat.openai.com"
     }
+    
     stages {
         stage('Prepare'){
             environment {
