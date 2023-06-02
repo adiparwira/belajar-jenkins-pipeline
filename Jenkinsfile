@@ -18,7 +18,8 @@ pipeline {
             }
             
             steps {
-                echo "ADI-CRED: ${APP}"
+                echo "APP USER: ${APP_USR}"
+                echo "APP PASSORD: ${APP_PSW}"
                 echo "AUTHOR: ${AUTHOR}"
                 echo "Start job: ${env.JOB_NAME}"
                 echo "Start build: ${env.BUILD_NUMBER}"
