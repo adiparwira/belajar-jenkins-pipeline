@@ -1,6 +1,10 @@
 pipeline {
     agent none
-    
+    environtment {
+        AUTHOR = "Aryadi"
+        EMAIL = "adiparwira@yahoo.com"
+        WEB = "https://chat.openai.com"
+    }
     stages {
         stage('Prepare'){
             agent {
