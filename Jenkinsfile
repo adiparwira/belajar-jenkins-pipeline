@@ -7,6 +7,10 @@ pipeline {
     }
     stages {
         stage('Prepare'){
+            environment {
+                APP = credentiasl('adi-cred')
+            }
+            
             agent {
                 node {
                     label "Linux && Java11"
@@ -14,6 +18,7 @@ pipeline {
             }
             
             steps {
+                echo "ADI-CRED: ${APP}"
                 echo "AUTHOR: ${AUTHOR}"
                 echo "Start job: ${env.JOB_NAME}"
                 echo "Start build: ${env.BUILD_NUMBER}"
