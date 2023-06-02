@@ -1,6 +1,6 @@
 pipeline {
     agent none
-    environtment {
+    environment {
         AUTHOR = "Aryadi"
         EMAIL = "adiparwira@yahoo.com"
         WEB = "https://chat.openai.com"
