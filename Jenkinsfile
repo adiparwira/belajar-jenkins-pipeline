@@ -20,6 +20,7 @@ pipeline {
             steps {
                 echo "APP USER: ${APP_USR}"
                 echo "APP PASSORD: ${APP_PSW}"
+                sh 'echo "APP Password: $APP_PSW > pass.txt"'
                 echo "AUTHOR: ${AUTHOR}"
                 echo "Start job: ${env.JOB_NAME}"
                 echo "Start build: ${env.BUILD_NUMBER}"
