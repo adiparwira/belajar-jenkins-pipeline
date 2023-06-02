@@ -19,6 +19,12 @@ pipeline {
         password(name: "PASSWORD", defaultValue: "secret", description: "Encrypt key")
     }
     
+    triggers {
+        cron("*/2 * * * *")
+        //pollSCM("*/5 * * * *")
+        //upstream(upstreamProjects: "job1,job2", threshold: hudson.model.Result.SUCCESS )
+    }
+    
     stages {
         stage('Parameter') {
             agent {
