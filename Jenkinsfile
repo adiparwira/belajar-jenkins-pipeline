@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Prepare'){
             environment {
-                APP = credentiasl('adi-cred')
+                APP = credentials('adi-cred')
             }
             
             agent {
