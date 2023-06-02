@@ -14,6 +14,7 @@ pipeline {
             }
             
             steps {
+                echo "AUTHOR ${AUTHOR}"
                 echo "Start job: ${env.JOB_NAME}"
                 echo "Start build: ${env.BUILD_NUMBER}"
                 echo "Branch name: ${env.BRANCH_NAME}"
