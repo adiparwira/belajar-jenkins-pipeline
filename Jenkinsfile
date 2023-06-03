@@ -35,18 +35,18 @@ pipeline {
                 }
             }
             
-            stages{
-                stage("Prepare Java"){
-                    steps {
-                        echo "Prepare Java"
-                    }
-                }
-                stage("Prepare Maven"){
-                    steps {
-                        echo "Prepare Maven"
-                    }
-                }
-            }
+//             stages{
+//                 stage("Prepare Java"){
+//                     steps {
+//                         echo "Prepare Java"
+//                     }
+//                 }
+//                 stage("Prepare Maven"){
+//                     steps {
+//                         echo "Prepare Maven"
+//                     }
+//                 }
+//             }
         }
         
         stage('Parameter') {
