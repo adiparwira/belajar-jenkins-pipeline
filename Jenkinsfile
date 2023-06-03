@@ -118,6 +118,7 @@ pipeline {
             steps {
                 echo "Deploy to ${TARGET_ENV}"
             }
+        }
         
         stage('Release') {
             when {
