@@ -104,6 +104,9 @@ pipeline {
                 message "Can we delpy ?"
                 ok "Yes of course"
                 submitter "aryadi,jenkins"
+                parameters {
+                    choice(name: "TARGET_ENV", choices: ["DEV", "QA", "PROD"], description: "Which Environment ?")
+                }
             }
             
             agent {
