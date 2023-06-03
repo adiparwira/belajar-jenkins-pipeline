@@ -100,6 +100,12 @@ pipeline {
         }
 
         stage('Deploy'){
+            input {
+                message "Can we delpy ?"
+                ok "Yes of course"
+                submitter "aryadi,jenkins"
+            }
+            
             agent {
                 node {
                     label "Agent && 2"
