@@ -118,7 +118,25 @@ pipeline {
             steps {
                 echo "Deploy to ${TARGET_ENV}"
             }
+        
+        stage('Release') {
+            when {
+                expression {
+                    return params.DEPLOY
+                }
+            }
+                
+            agent {
+                node {
+                    label "Agent && 2"
+                }
+            }
+            
+            steps {
+                echo "Release it"
+            }
         }
+            
     }
 
     post {
