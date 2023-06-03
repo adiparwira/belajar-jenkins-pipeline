@@ -116,7 +116,7 @@ pipeline {
             }
             
             steps {
-                echo 'Hello Deploy 1'
+                echo 'Deploy to ${TARGET_ENV}'
             }
         }
     }
