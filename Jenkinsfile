@@ -53,7 +53,6 @@ pipeline {
 //         }
          stage("Preparation") {
              parallel {
-                stages {
                     stage("Prepare Java"){
                         agent {
                             node {
@@ -76,7 +75,6 @@ pipeline {
                             sleep 5
                         }
                     }
-                }
              }
         }
         
