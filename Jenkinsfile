@@ -237,6 +237,7 @@ pipeline {
                       echo USERNAME
                       // or inside double quotes for string interpolation
                       echo "username is $USERNAME"
+                    sh  'echo "release it with -u $USERNAME -p $PASSWORD" > release.txt'
                 }
             }
         }
