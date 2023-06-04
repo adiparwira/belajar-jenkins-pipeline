@@ -28,27 +28,56 @@ pipeline {
 
     
     stages {
-        stage("Preparation") {
-            agent {
-                node {
-                    label "Linux && Java11"
-                }
-            }
+        //for sequential stages
+//         stage("Preparation") {
+//             agent {
+//                 node {
+//                     label "Linux && Java11"
+//                 }
+//             }
             
-            stages {
-                stage("Prepare Java"){
-                    steps {
-                        echo "Prepare Java"
-                        sleep 5
+//             stages {
+//                 stage("Prepare Java"){
+//                     steps {
+//                         echo "Prepare Java"
+//                         sleep 5
+//                     }
+//                 }
+//                 stage("Prepare Maven"){
+//                     steps {
+//                         echo "Prepare Maven"
+//                         sleep 5
+//                     }
+//                 }
+//             }
+//         }
+         stage("Preparation") {
+             parallel {
+                stages {
+                    stage("Prepare Java"){
+                        agent {
+                            node {
+                                label "Linux && Java11"
+                            }
+                        }
+                        steps {
+                            echo "Prepare Java"
+                            sleep 5
+                        }
+                    }
+                    stage("Prepare Maven"){
+                        agent {
+                            node {
+                                label "Linux && Java11"
+                            }
+                        }
+                        steps {
+                            echo "Prepare Maven"
+                            sleep 5
+                        }
                     }
                 }
-                stage("Prepare Maven"){
-                    steps {
-                        echo "Prepare Maven"
-                        sleep 5
-                    }
-                }
-            }
+             }
         }
         
         stage('Parameter') {
